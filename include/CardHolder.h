@@ -7,7 +7,7 @@
 class CardHolder
 {
     public:
-        virtual void add() = 0;
+        virtual void add(Card card) = 0;
         virtual void remove(int position) = 0;
         virtual void removeElement(Card card) = 0;
         virtual Card get(int position) = 0;

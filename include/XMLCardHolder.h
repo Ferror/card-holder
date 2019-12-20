@@ -3,9 +3,8 @@
 
 #include "CardHolder.h"
 
-class XmlCardHolder : public CardHolder
+class XMLCardHolder : public CardHolder
 {
-
 };
 
 #endif
