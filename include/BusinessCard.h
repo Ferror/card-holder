@@ -11,6 +11,7 @@ class BusinessCard : public Card
     public:
         BusinessCard(std::string phoneNumber, std::string name, std::string email, std::string taxNumber);
         ~BusinessCard() = default;
+        void render() override;
 };
 
 #endif

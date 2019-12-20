@@ -5,7 +5,7 @@
 
 class Card
 {
-    private:
+    protected:
         std::string phoneNumber;
         std::string name;
         std::string email;
