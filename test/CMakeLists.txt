@@ -9,9 +9,7 @@ find_package(Boost COMPONENTS filesystem system unit_test_framework REQUIRED)
 # Gather the header and source files
 file(GLOB_RECURSE UNIT_TESTS_SRC_FILES
     ${PROJECT_SOURCE_DIR}/test/mainTest.cpp
-    ${PROJECT_SOURCE_DIR}/test/Domain/*.cpp
-    ${PROJECT_SOURCE_DIR}/test/Infrastructure/*.cpp
-    ${PROJECT_SOURCE_DIR}/test/Application/*.cpp
+    ${PROJECT_SOURCE_DIR}/test/*.cpp
 )
 
 # Include paths

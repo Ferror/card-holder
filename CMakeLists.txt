@@ -14,14 +14,14 @@ set(DEMO_INCLUDES ${DEMO_INCLUDES} ${PROJECT_SOURCE_DIR}/include)
 
 # Gather all sources except the main entry point
 file(GLOB_RECURSE INC_FILES
-    include/Application/*.h
-    include/Infrastructure/*.h
-    include/Domain/*.h
+    include/*.h
 )
 file(GLOB_RECURSE SRC_FILES
-    src/Application/*.cpp
-    src/Infrastructure/*.cpp
-    src/Domain/*.cpp
+    src/*.cpp
+)
+file(GLOB_RECURSE VENDOR_FILES
+    vendor/*.cpp
+    vendor/*.h
 )
 
 # Dependencies
@@ -34,6 +34,6 @@ add_subdirectory(test)
 include_directories(${Boost_INCLUDE_DIRS})
 
 # Build
-set(SOURCE_FILES src/main.cpp ${INC_FILES} ${SRC_FILES})
+set(SOURCE_FILES src/main.cpp ${INC_FILES} ${SRC_FILES} ${VENDOR_FILES})
 add_executable(polsl_card_holder ${SOURCE_FILES})
 target_link_libraries(polsl_card_holder ${Boost_LIBRARIES})
