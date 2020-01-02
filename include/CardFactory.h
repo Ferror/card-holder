@@ -9,7 +9,7 @@
 class CardFactory
 {
     public:
-        Card* createFromXML(tinyxml2::XMLNode* child);
+        static Card* createFromXML(tinyxml2::XMLNode* child);
 };
 
 #endif
