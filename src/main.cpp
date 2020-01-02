@@ -1,6 +1,7 @@
-
 #include "../include/BusinessCard.h"
 #include "../include/PrivateCard.h"
+#include "../include/XMLDocument.h"
+#include "../include/XMLCardHolder.h"
 
 int main()
 {
@@ -18,6 +19,10 @@ int main()
 
     PCard.render();
     BCard.render();
+
+    XMLDocument document("../data/xml/cards.xml", CardFactory());
+    XMLCardHolder holder(document);
+    holder.print();
 
     return 0;
 }
