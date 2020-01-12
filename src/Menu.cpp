@@ -12,6 +12,7 @@ Menu::Menu()
     list.push_back(MenuOption("Edit card", 3));
     list.push_back(MenuOption("Import cards", 4));
     list.push_back(MenuOption("Find card", 5));
+    list.push_back(MenuOption("Print cards", 6));
 
     this->optionList = list;
 }
@@ -22,7 +23,7 @@ void Menu::print()
 {
     std::cout << "Menu: " << std::endl;
 
-    for (auto & option : this->optionList) {
+    for (MenuOption option : this->optionList) {
         option.render();
     }
 }

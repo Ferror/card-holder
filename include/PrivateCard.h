@@ -7,7 +7,7 @@ class PrivateCard : public Card
 {
     public:
         PrivateCard(std::string phoneNumber, std::string name, std::string email);
-        ~PrivateCard() = default;
+        ~PrivateCard();
         void render() override;
 };
 

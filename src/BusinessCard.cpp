@@ -18,3 +18,5 @@ void BusinessCard::render()
     std::cout << "[" << icon << "] " << this->name << std::endl;
     std::cout << this->email << std::endl;
 }
+
+BusinessCard::~BusinessCard() = default;

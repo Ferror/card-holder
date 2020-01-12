@@ -4,8 +4,8 @@
 
 #include <stdexcept>
 
-Card* CardFactory::createFromXML(tinyxml2::XMLNode* child) {
-
+Card* CardFactory::createFromXML(tinyxml2::XMLNode* child)
+{
     tinyxml2::XMLNode* node = child->FirstChild();
 
     std::string type(node->FirstChild()->Value());
@@ -28,4 +28,17 @@ Card* CardFactory::createFromXML(tinyxml2::XMLNode* child) {
     }
 
     throw std::invalid_argument("invalid card type");
+}
+
+Card* CardFactory::createFromUserInput(
+    std::string phoneNumber,
+    std::string name,
+    std::string email,
+    std::string taxNumber
+) {
+    if (taxNumber.empty()) {
+        return new PrivateCard(phoneNumber, name, email);
+    }
+
+    return new BusinessCard(phoneNumber, name, email, taxNumber);
 }

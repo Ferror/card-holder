@@ -12,7 +12,9 @@ class XMLCardHolder : public CardHolder
         std::vector<Card*> cardList;
 
     public:
+        XMLCardHolder();
         XMLCardHolder(Document& document);
+        ~XMLCardHolder();
         void add(Card* card);
         void remove(int position);
         void import(Document document);

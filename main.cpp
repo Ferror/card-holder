@@ -1,11 +1,15 @@
-#include "../include/Controller.h"
-#include "../include/Menu.h"
+#include "include/Controller.h"
+#include "include/Menu.h"
+#include "include/XMLDocument.h"
 
 #include <iostream>
 
 int main()
 {
     Menu menu;
+    XMLDocument document("../data/xml/cards.xml", new CardFactory);
+    XMLCardHolder* holder = new XMLCardHolder(document);
+    Controller controller(holder);
     int chosenOption;
 
     do {
@@ -17,22 +21,22 @@ int main()
             case 0:
                 break;
             case 1:
-                Controller::createCard();
+                controller.createCard();
                 break;
             case 2:
-                Controller::removeCard();
+                controller.removeCard();
                 break;
             case 3:
-                Controller::editCard();
+                controller.editCard();
                 break;
             case 4:
-                Controller::import();
+                controller.import();
                 break;
             case 5:
-                Controller::search();
+                controller.search();
                 break;
             case 6:
-                Controller::print();
+                controller.print();
                 break;
             default:
                 std::cout << "Invalid menu option" << std::endl;

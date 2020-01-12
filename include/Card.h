@@ -11,6 +11,7 @@ class Card
         std::string email;
 
     public:
+        virtual ~Card() = default;
         virtual void render() = 0;
 };
 

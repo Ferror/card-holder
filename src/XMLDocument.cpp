@@ -1,9 +1,14 @@
 #include "../include/XMLDocument.h"
 
-XMLDocument::XMLDocument(const char *filename, CardFactory factory)
+XMLDocument::XMLDocument(const char *filename, CardFactory* factory)
 {
     this->fileName = filename;
     this->factory = factory;
+}
+
+XMLDocument::~XMLDocument()
+{
+    delete this->factory;
 }
 
 std::vector<Card*> XMLDocument::getCards()
@@ -14,7 +19,7 @@ std::vector<Card*> XMLDocument::getCards()
     tinyxml2::XMLNode* child = document.FirstChildElement("cards")->FirstChild();
 
     while (child != nullptr) {
-        list.push_back(this->factory.createFromXML(child));
+        list.push_back(this->factory->createFromXML(child));
 
         child = child->NextSibling();
     }

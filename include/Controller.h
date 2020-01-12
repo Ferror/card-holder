@@ -1,15 +1,22 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
+#include "XMLCardHolder.h"
+
 class Controller
 {
+    private:
+        XMLCardHolder* holder;
+
     public:
-        static void createCard();
-        static void removeCard();
-        static void editCard();
-        static void import();
-        static void search();
-        static void print();
+        Controller(XMLCardHolder* holder);
+        ~Controller();
+        void createCard();
+        void removeCard();
+        void editCard();
+        void import();
+        void search();
+        void print();
 };
 
 #endif
