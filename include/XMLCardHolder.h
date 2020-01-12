@@ -15,10 +15,13 @@ class XMLCardHolder : public CardHolder
         XMLCardHolder();
         XMLCardHolder(Document& document);
         ~XMLCardHolder();
-        void add(Card* card);
-        void remove(int position);
-        void import(Document document);
-        void print();
+        void add(Card* card) override;
+        void remove(int position) override;
+        Card* get(int position) override;
+        Card* getByPhrase(std::string phrase) override;
+        void import(Document document) override;
+        void print() override;
+        void printWithId();
 };
 
 #endif

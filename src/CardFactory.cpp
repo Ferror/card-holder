@@ -10,9 +10,9 @@ Card* CardFactory::createFromXML(tinyxml2::XMLNode* child)
 
     std::string type(node->FirstChild()->Value());
     node = node->NextSibling();
-    std::string phoneNumber(node->FirstChild()->Value());
-    node = node->NextSibling();
     std::string name(node->FirstChild()->Value());
+    node = node->NextSibling();
+    std::string phoneNumber(node->FirstChild()->Value());
     node = node->NextSibling();
     std::string email(node->FirstChild()->Value());
 

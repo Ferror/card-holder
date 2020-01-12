@@ -9,6 +9,11 @@ class PrivateCard : public Card
         PrivateCard(std::string phoneNumber, std::string name, std::string email);
         ~PrivateCard();
         void render() override;
+        void renderWithId(int id) override;
+        void changeName(std::string newName) override;
+        void changeEmail(std::string newEmailAddress) override;
+        void changePhoneNumber(std::string newPhoneNumber) override;
+        bool containPhrase(std::string phrase) override;
 };
 
 #endif

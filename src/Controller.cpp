@@ -29,12 +29,42 @@ void Controller::createCard()
 
 void Controller::removeCard()
 {
+    int cardIdToRemove;
+
     std::cout << "You choose remove card option" << std::endl;
+    this->holder->printWithId();
+    std::cout << "Type card id you want to delete: ";
+    std::cin >> cardIdToRemove;
+    this->holder->remove(cardIdToRemove);
 }
 
 void Controller::editCard()
 {
+    int cardIdToRemove;
+    std::string userAction, userActionValue;
+
     std::cout << "You choose edit card option" << std::endl;
+    this->holder->printWithId();
+    std::cout << "Type card id you want to edit: ";
+    std::cin >> cardIdToRemove;
+    Card* card = this->holder->get(cardIdToRemove);
+    card->render();
+    std::cout << "What would you like to edit [name, email, phone]: ";
+    std::cin >> userAction;
+    std::cout << "New " << userAction << " is: ";
+    std::cin >> userActionValue;
+
+    if (userAction == "name") {
+        card->changeName(userActionValue);
+    }
+
+    if (userAction == "phone") {
+        card->changePhoneNumber(userActionValue);
+    }
+
+    if (userAction == "email") {
+        card->changeEmail(userActionValue);
+    }
 }
 
 void Controller::import()
@@ -44,7 +74,17 @@ void Controller::import()
 
 void Controller::search()
 {
+    std::string userSearchPhrase;
+
     std::cout << "You choose search card option" << std::endl;
+    std::cout << "Provide search phrase: ";
+    std::cin >> userSearchPhrase;
+
+    try {
+        this->holder->getByPhrase(userSearchPhrase)->render();
+    } catch (...) {
+        std::cout << "Card not found for provided search phrase: \"" << userSearchPhrase << "\"" << std::endl;
+    }
 }
 
 void Controller::print()
