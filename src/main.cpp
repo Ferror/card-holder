@@ -1,28 +1,44 @@
-#include "../include/BusinessCard.h"
-#include "../include/PrivateCard.h"
-#include "../include/XMLDocument.h"
-#include "../include/XMLCardHolder.h"
+#include "../include/Controller.h"
+#include "../include/Menu.h"
+
+#include <iostream>
 
 int main()
 {
-    BusinessCard BCard(
-        std::string("a"),
-        std::string("b"),
-        std::string("c"),
-        std::string("d")
-    );
-    PrivateCard PCard(
-        std::string("b"),
-        std::string("c"),
-        std::string("d")
-    );
+    Menu menu;
+    int chosenOption;
 
-    PCard.render();
-    BCard.render();
+    do {
+        menu.print();
+        std::cout<<"Podaj wartosc: ";
+        std::cin >> chosenOption;
 
-    XMLDocument document("../data/xml/cards.xml", CardFactory());
-    XMLCardHolder holder(document);
-    holder.print();
+        switch (chosenOption) {
+            case 0:
+                break;
+            case 1:
+                Controller::createCard();
+                break;
+            case 2:
+                Controller::removeCard();
+                break;
+            case 3:
+                Controller::editCard();
+                break;
+            case 4:
+                Controller::import();
+                break;
+            case 5:
+                Controller::search();
+                break;
+            case 6:
+                Controller::print();
+                break;
+            default:
+                std::cout << "Invalid menu option" << std::endl;
+                break;
+        }
+    } while (chosenOption != 0);
 
     return 0;
 }
