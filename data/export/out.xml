@@ -2,21 +2,28 @@
     <card>
         <type>business</type>
         <name>Example Name</name>
-        <phone-number>+48333444555</phone-number>
+        <phone-number>name@example.com</phone-number>
         <email>name@example.com</email>
         <tax-number>333444555</tax-number>
     </card>
     <card>
-        <type>private</type>
+        <type>business</type>
         <name>Private Name</name>
-        <phone-number>+48333444555</phone-number>
+        <phone-number>name@private.com</phone-number>
         <email>name@private.com</email>
     </card>
     <card>
         <type>business</type>
         <name>Business Name</name>
-        <phone-number>+48333444555</phone-number>
+        <phone-number>name@business.com</phone-number>
         <email>name@business.com</email>
         <tax-number>444333222</tax-number>
+    </card>
+    <card>
+        <type>business</type>
+        <name>custom-name</name>
+        <phone-number>asdadasda</phone-number>
+        <email>asdadasda</email>
+        <tax-number>adasdasd</tax-number>
     </card>
 </cards>

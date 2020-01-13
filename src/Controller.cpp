@@ -9,6 +9,11 @@ Controller::Controller(XMLCardHolder* holder)
     this->holder = holder;
 }
 
+Controller::~Controller()
+{
+    delete this->holder;
+}
+
 void Controller::createCard()
 {
     std::string name, phoneNumber, emailAddress, taxNumber;
@@ -36,6 +41,7 @@ void Controller::removeCard()
     std::cout << "Type card id you want to delete: ";
     std::cin >> cardIdToRemove;
     this->holder->remove(cardIdToRemove);
+    std::cout << "Removed card successfully" << std::endl;
 }
 
 void Controller::editCard()
@@ -69,7 +75,19 @@ void Controller::editCard()
 
 void Controller::import()
 {
+    std::string userDocumentPath;
+
     std::cout << "You choose import card option" << std::endl;
+    std::cout << "Provide document path: ";
+    std::cin >> userDocumentPath;
+
+    //example imput path: ../data/xml/in.xml
+    try {
+        XMLDocument document(userDocumentPath, new CardFactory);
+        this->holder->import(document);
+    } catch (...) {
+        std::cout << "Card not found file for provided patj: \"" << userDocumentPath << "\"" << std::endl;
+    }
 }
 
 void Controller::search()
@@ -92,7 +110,7 @@ void Controller::print()
     this->holder->print();
 }
 
-Controller::~Controller()
+void Controller::exportToXML()
 {
-    delete this->holder;
+    this->holder->exportToDocument();
 }

@@ -19,7 +19,8 @@ class XMLCardHolder : public CardHolder
         void remove(int position) override;
         Card* get(int position) override;
         Card* getByPhrase(std::string phrase) override;
-        void import(Document document) override;
+        void import(Document& document) override;
+        void exportToDocument() override;
         void print() override;
         void printWithId();
 };

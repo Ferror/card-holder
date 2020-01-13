@@ -1,8 +1,9 @@
 #ifndef MENU_H
 #define MENU_H
 
-#include <vector>
 #include "MenuOption.h"
+
+#include <vector>
 
 class Menu
 {

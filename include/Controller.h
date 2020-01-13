@@ -15,6 +15,7 @@ class Controller
         void removeCard();
         void editCard();
         void import();
+        void exportToXML();
         void search();
         void print();
 };

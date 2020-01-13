@@ -1,8 +1,14 @@
 #include "../include/XMLDocument.h"
 
-XMLDocument::XMLDocument(const char *filename, CardFactory* factory)
+XMLDocument::XMLDocument(const char *fileName, CardFactory* factory)
 {
-    this->fileName = filename;
+    this->fileName = fileName;
+    this->factory = factory;
+}
+
+XMLDocument::XMLDocument(const std::string& fileName, CardFactory *factory)
+{
+    this->fileName = fileName.c_str();
     this->factory = factory;
 }
 

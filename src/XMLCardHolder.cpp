@@ -1,7 +1,5 @@
 #include "../include/XMLCardHolder.h"
 
-#include <iostream>
-
 XMLCardHolder::XMLCardHolder(Document& document)
 {
     this->cardList = document.getCards();
@@ -31,9 +29,11 @@ void XMLCardHolder::remove(int position)
     this->cardList.erase(this->cardList.begin() + position);
 }
 
-void XMLCardHolder::import(Document document)
+void XMLCardHolder::import(Document& document)
 {
-    this->cardList = document.getCards();
+    for (Card* card : document.getCards()) {
+        this->cardList.push_back(card);
+    }
 }
 
 void XMLCardHolder::print()
@@ -67,4 +67,21 @@ Card* XMLCardHolder::getByPhrase(std::string phrase)
     }
 
     throw std::invalid_argument("There is no card with phrase: " + phrase);
+}
+
+void XMLCardHolder::exportToDocument()
+{
+    tinyxml2::XMLDocument* document = new tinyxml2::XMLDocument();
+    tinyxml2::XMLNode* pRoot = document->NewElement("cards");
+    document->InsertFirstChild(pRoot);
+
+    for (Card* card : this->cardList) {
+        tinyxml2::XMLElement* pListElement = document->NewElement("card");
+
+        pRoot->InsertEndChild(card->getXML(pListElement, document));
+    }
+
+    document->SaveFile("../data/export/out.xml");
+
+    delete document;
 }

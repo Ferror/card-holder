@@ -12,7 +12,8 @@ class XMLDocument : public Document
         CardFactory* factory;
 
     public:
-        XMLDocument(const char* filename, CardFactory* factory);
+        XMLDocument(const char* fileName, CardFactory* factory);
+        XMLDocument(const std::string& fileName, CardFactory* factory);
         ~XMLDocument();
         std::vector<Card*> getCards() override;
 };

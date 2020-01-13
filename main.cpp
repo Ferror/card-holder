@@ -8,8 +8,7 @@ int main()
 {
     Menu menu;
     XMLDocument document("../data/xml/cards.xml", new CardFactory);
-    XMLCardHolder* holder = new XMLCardHolder(document);
-    Controller controller(holder);
+    Controller controller(new XMLCardHolder(document));
     int chosenOption;
 
     do {
@@ -37,6 +36,9 @@ int main()
                 break;
             case 6:
                 controller.print();
+                break;
+            case 7:
+                controller.exportToXML();
                 break;
             default:
                 std::cout << "Invalid menu option" << std::endl;

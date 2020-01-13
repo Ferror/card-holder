@@ -59,3 +59,30 @@ bool BusinessCard::containPhrase(std::string phrase)
 
     return this->phoneNumber.find(phrase) != std::string::npos;
 }
+
+tinyxml2::XMLNode* BusinessCard::getXML(tinyxml2::XMLElement* element, tinyxml2::XMLDocument* document)
+{
+    tinyxml2::XMLElement* property;
+
+    property = document->NewElement("type");
+    property->SetText("business");
+    element->InsertEndChild(property);
+
+    property = document->NewElement("name");
+    property->SetText(this->name.c_str());
+    element->InsertEndChild(property);
+
+    property = document->NewElement("phone-number");
+    property->SetText(this->email.c_str());
+    element->InsertEndChild(property);
+
+    property = document->NewElement("email");
+    property->SetText(this->email.c_str());
+    element->InsertEndChild(property);
+
+    property = document->NewElement("tax-number");
+    property->SetText(this->taxNumber.c_str());
+    element->InsertEndChild(property);
+
+    return element;
+}

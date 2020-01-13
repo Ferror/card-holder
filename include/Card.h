@@ -1,6 +1,8 @@
 #ifndef CARD_H
 #define CARD_H
 
+#include "../vendor/tinyxml2/include/tinyxml2.h"
+
 #include <string>
 
 class Card
@@ -18,6 +20,7 @@ class Card
         virtual void changeEmail(std::string newEmail) = 0;
         virtual void changePhoneNumber(std::string newPhoneNumber) = 0;
         virtual bool containPhrase(std::string phrase) = 0;
+        virtual tinyxml2::XMLNode* getXML(tinyxml2::XMLElement* element, tinyxml2::XMLDocument* document) = 0;
 };
 
 #endif

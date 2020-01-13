@@ -13,6 +13,7 @@ Menu::Menu()
     list.push_back(MenuOption("Import cards", 4));
     list.push_back(MenuOption("Find card", 5));
     list.push_back(MenuOption("Print cards", 6));
+    list.push_back(MenuOption("Export cards to xml file", 7));
 
     this->optionList = list;
 }

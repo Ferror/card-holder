@@ -14,6 +14,7 @@ class PrivateCard : public Card
         void changeEmail(std::string newEmailAddress) override;
         void changePhoneNumber(std::string newPhoneNumber) override;
         bool containPhrase(std::string phrase) override;
+        tinyxml2::XMLNode* getXML(tinyxml2::XMLElement* element, tinyxml2::XMLDocument* document) override;
 };
 
 #endif
