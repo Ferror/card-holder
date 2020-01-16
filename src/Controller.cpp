@@ -16,9 +16,15 @@ Controller::~Controller()
 
 void Controller::createCard()
 {
-    std::string name, phoneNumber, emailAddress, taxNumber;
+    std::string name, phoneNumber, emailAddress, taxNumber, userInputChoose;
 
     std::cout << "You choose create card option" << std::endl;
+
+    do {
+        std::cout << "Business or Private card? [business/private]: ";
+        std::cin >> userInputChoose;
+    } while (userInputChoose != "business" && userInputChoose != "private");
+
     std::cout << "Provide data" << std::endl;
     std::cout << "Name: ";
     std::cin >> name;
@@ -26,8 +32,11 @@ void Controller::createCard()
     std::cin >> phoneNumber;
     std::cout << "Email address: ";
     std::cin >> emailAddress;
-    std::cout << "Tax number (if not press enter): ";
-    std::cin >> taxNumber;
+
+    if (userInputChoose == "business") {
+        std::cout << "Tax number (if not press enter): ";
+        std::cin >> taxNumber;
+    }
 
     this->holder->add(CardFactory::createFromUserInput(phoneNumber, name, emailAddress, taxNumber));
 }

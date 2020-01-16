@@ -21,9 +21,15 @@
     </card>
     <card>
         <type>business</type>
-        <name>custom-name</name>
-        <phone-number>asdadasda</phone-number>
-        <email>asdadasda</email>
-        <tax-number>adasdasd</tax-number>
+        <name>private</name>
+        <phone-number>private</phone-number>
+        <email>private</email>
+    </card>
+    <card>
+        <type>business</type>
+        <name>business</name>
+        <phone-number>business</phone-number>
+        <email>business</email>
+        <tax-number>tax-number</tax-number>
     </card>
 </cards>
