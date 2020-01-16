@@ -55,7 +55,11 @@ void XMLCardHolder::printWithId()
 
 Card* XMLCardHolder::get(int position)
 {
-    return this->cardList.at(position);
+    try {
+        return this->cardList.at(position);
+    } catch (const std::out_of_range& e) {
+        return nullptr;
+    }
 }
 
 Card* XMLCardHolder::getByPhrase(std::string phrase)

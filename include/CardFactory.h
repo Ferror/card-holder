@@ -10,7 +10,7 @@ class CardFactory
 {
     public:
         static Card* createFromXML(tinyxml2::XMLNode* child);
-        static Card* createFromUserInput(std::string phoneNumber,std::string name,std::string email,std::string taxNumber);
+        static Card* createFromUserInput(std::string phoneNumber, std::string name, std::string email, std::string taxNumber);
 };
 
 #endif
