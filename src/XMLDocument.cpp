@@ -29,7 +29,7 @@ std::vector<Card*> XMLDocument::getCards()
     error = document.LoadFile(this->fileName);
 
     if (error) {
-        std::cout << "Could not load required file: card.xml" << std::endl;
+        std::cout << "Could not load required file: " << this->fileName << std::endl;
         std::exit(0);
     }
 

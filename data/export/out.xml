@@ -19,17 +19,4 @@
         <email>name@business.com</email>
         <tax-number>444333222</tax-number>
     </card>
-    <card>
-        <type>business</type>
-        <name>private</name>
-        <phone-number>private</phone-number>
-        <email>private</email>
-    </card>
-    <card>
-        <type>business</type>
-        <name>business</name>
-        <phone-number>business</phone-number>
-        <email>business</email>
-        <tax-number>tax-number</tax-number>
-    </card>
 </cards>

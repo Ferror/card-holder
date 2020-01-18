@@ -90,12 +90,12 @@ void Controller::import()
     std::cout << "Provide document path: ";
     std::cin >> userDocumentPath;
 
-    //example imput path: ../data/xml/in.xml
+    //example imput path: ../data/import/in.xml
     try {
         XMLDocument document(userDocumentPath, new CardFactory);
         this->holder->import(document);
     } catch (...) {
-        std::cout << "Card not found file for provided patj: \"" << userDocumentPath << "\"" << std::endl;
+        std::cout << "Card not found file for provided path: \"" << userDocumentPath << "\"" << std::endl;
     }
 }
 
